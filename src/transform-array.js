@@ -12,6 +12,10 @@ module.exports = function transform(arr) {
                 i++
             } else if (arr[i] === '--double-next' && i === arr.length - 1) {
                 continue
+            } else if (arr[i] === '--double-prev' && arr[i-2] === '--discard-next') {
+                continue
+            } else if (arr[i] === '--discard-prev' && arr[i-2] === '--discard-next') {
+                continue
             } else if (arr[i] === '--double-prev' && i > 0) {
                 resultArr.push(arr[i - 1])
             } else if (arr[i] === '--double-prev' && i === 0) {
